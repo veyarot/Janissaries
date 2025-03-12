@@ -6,12 +6,12 @@
     <title>JANISSARIES Insurance Agency | Application Received</title>
     <style>
         :root {
-            --primary: #670000;
-            --secondary: #8B0000;
-            --accent: #F5DEB3;
-            --light: #FFF5E6;
-            --dark: #340000;
-            --text: #2D2D2D;
+            --primary: #003087; /* Deep blue */
+            --secondary: #005f73; /* Teal/green */
+            --accent: #ffd166; /* Yellow */
+            --light: #f0f7ff; /* Light blue tint */
+            --dark: #001d3d; /* Dark blue */
+            --text: #333333;
         }
         
         * {
@@ -78,6 +78,7 @@
             padding: 3rem 5%;
             text-align: center;
             background-color: var(--light);
+            background-image: linear-gradient(135deg, rgba(0, 48, 135, 0.03) 0%, rgba(0, 95, 115, 0.06) 100%);
         }
         
         .thank-you-container img {
@@ -91,6 +92,7 @@
             padding: 3rem;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--accent);
         }
         
         .thank-you-content h1 {
@@ -112,6 +114,18 @@
         .next-steps h2 {
             color: var(--primary);
             margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .next-steps h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
         }
         
         .next-steps ul {
@@ -121,6 +135,8 @@
         
         .next-steps li {
             margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 0.5rem;
         }
         
         .button-container {
@@ -143,6 +159,7 @@
         .primary-button:hover {
             background-color: var(--secondary);
             transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         
         .secondary-button {
@@ -162,10 +179,13 @@
             background-color: white;
             border: 1px solid var(--primary);
             transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         
         .social-links {
             margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(0, 48, 135, 0.1);
         }
         
         .social-links a {
