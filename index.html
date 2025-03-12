@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JANISSARIES Insurance Agency | Join Our Team</title>
     <style>
+        /* All existing styles remain the same */
         :root {
             --primary: #670000;
             --secondary: #8B0000;
@@ -397,6 +398,26 @@
                 gap: 0.5rem;
             }
         }
+        
+        /* New styles for form status messages */
+        .form-status {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        .form-status.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .form-status.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
     </style>
 </head>
 <body>
@@ -585,10 +606,16 @@
     <section class="application-form" id="apply">
         <h2 class="section-title">Apply Now</h2>
         <div class="form-container">
-            <form id="career-application">
+            <div id="form-status" class="form-status"></div>
+            <form id="career-application" action="https://formsubmit.co/torayev.biz@gmail.com" method="POST" enctype="multipart/form-data">
+                <!-- FormSubmit required fields -->
+                <input type="hidden" name="_subject" value="New JANISSARIES Job Application">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://janissariesx.com/thank-you.html">
+                
                 <div class="form-group">
                     <label for="position">Position of Interest</label>
-                    <select class="form-control" id="position" required>
+                    <select class="form-control" id="position" name="position" required>
                         <option value="">Select a position</option>
                         <option value="Insurance Producer">Insurance Producer</option>
                         <option value="Appointment Setter">Appointment Setter</option>
@@ -596,19 +623,19 @@
                 </div>
                 <div class="form-group">
                     <label for="name">Full Name</label>
-                    <input type="text" class="form-control" id="name" required>
+                    <input type="text" class="form-control" id="name" name="name" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email Address</label>
-                    <input type="email" class="form-control" id="email" required>
+                    <input type="email" class="form-control" id="email" name="email" required>
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone Number</label>
-                    <input type="tel" class="form-control" id="phone" required>
+                    <input type="tel" class="form-control" id="phone" name="phone" required>
                 </div>
                 <div class="form-group">
                     <label for="experience">Years of Relevant Experience</label>
-                    <select class="form-control" id="experience">
+                    <select class="form-control" id="experience" name="experience">
                         <option value="0-1">0-1 years</option>
                         <option value="1-3">1-3 years</option>
                         <option value="3-5">3-5 years</option>
@@ -617,7 +644,7 @@
                 </div>
                 <div class="form-group">
                     <label for="insurance-license">Do you currently hold an insurance license?</label>
-                    <select class="form-control" id="insurance-license">
+                    <select class="form-control" id="insurance-license" name="insurance_license">
                         <option value="yes">Yes</option>
                         <option value="no">No</option>
                         <option value="in-progress">In Progress</option>
@@ -625,11 +652,11 @@
                 </div>
                 <div class="form-group">
                     <label for="resume">Upload Resume</label>
-                    <input type="file" class="form-control" id="resume">
+                    <input type="file" class="form-control" id="resume" name="resume">
                 </div>
                 <div class="form-group">
                     <label for="message">Why do you want to join JANISSARIES? (Optional)</label>
-                    <textarea class="form-control" id="message" rows="5"></textarea>
+                    <textarea class="form-control" id="message" name="message" rows="5"></textarea>
                 </div>
                 <button type="submit" class="submit-button">Submit Application</button>
             </form>
@@ -675,9 +702,12 @@
     
     <script>
         document.getElementById('career-application').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your application! Our team will review your information and contact you soon.');
-            this.reset();
+            // The form will now submit naturally to the FormSubmit service
+            // This handler is just for additional validation or UI feedback if needed
+            const formStatus = document.getElementById('form-status');
+            formStatus.className = 'form-status success';
+            formStatus.style.display = 'block';
+            formStatus.textContent = 'Submitting your application...';
         });
     </script>
 </body>
