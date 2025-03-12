@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JANISSARIES Insurance Agency | Application Received</title>
+    <style>
+        :root {
+            --primary: #670000;
+            --secondary: #8B0000;
+            --accent: #F5DEB3;
+            --light: #FFF5E6;
+            --dark: #340000;
+            --text: #2D2D2D;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #FFFFFF;
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--primary);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 50px;
+        }
+        
+        .logo img {
+            height: 100%;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .thank-you-container {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 5%;
+            text-align: center;
+            background-color: var(--light);
+        }
+        
+        .thank-you-container img {
+            width: 120px;
+            margin-bottom: 2rem;
+        }
+        
+        .thank-you-content {
+            max-width: 800px;
+            background-color: white;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .thank-you-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .thank-you-content p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .next-steps {
+            margin: 2rem 0;
+            text-align: left;
+        }
+        
+        .next-steps h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .next-steps ul {
+            list-style-position: inside;
+            margin-bottom: 1.5rem;
+        }
+        
+        .next-steps li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .button-container {
+            margin-top: 2rem;
+        }
+        
+        .primary-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin: 0 0.5rem 1rem;
+        }
+        
+        .primary-button:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .secondary-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin: 0 0.5rem 1rem;
+        }
+        
+        .secondary-button:hover {
+            background-color: white;
+            border: 1px solid var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .social-links {
+            margin-top: 2rem;
+        }
+        
+        .social-links a {
+            margin: 0 0.5rem;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 10% 1rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+            }
+            
+            nav ul li {
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+            
+            .thank-you-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .thank-you-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <!-- Placeholder for your logo -->
+                <div style="font-size: 32px; font-weight: bold; color: var(--accent);">JN</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#careers">Careers</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#testimonials">Team Stories</a></li>
+                    <li><a href="index.html#apply">Apply Now</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="thank-you-container">
+        <div class="thank-you-content">
+            <h1>Application Received!</h1>
+            <p>Thank you for your interest in joining the JANISSARIES team. We're excited to review your application and learn more about how you can contribute to our mission.</p>
+            
+            <div class="next-steps">
+                <h2>What Happens Next?</h2>
+                <ul>
+                    <li>Our recruiting team will review your application within 2-3 business days.</li>
+                    <li>Qualified candidates will be contacted to schedule an initial phone interview.</li>
+                    <li>Following successful interviews, you may be invited for an in-person or virtual meeting with our team.</li>
+                    <li>Final steps include background checks and offer discussions.</li>
+                </ul>
+                <p>If you have any questions about your application or our hiring process, please contact our recruiting team at <a href="mailto:Htorayev@janissariesx.com" style="color: var(--primary); font-weight: 600;">Htorayev@janissariesx.com</a> or call <a href="tel:+14129251282" style="color: var(--primary); font-weight: 600;">+1(412)925-1282</a>.</p>
+            </div>
+            
+            <div class="button-container">
+                <a href="index.html" class="secondary-button">Back to Homepage</a>
+                <a href="index.html#careers" class="primary-button">Explore More Opportunities</a>
+            </div>
+            
+            <div class="social-links">
+                <p>Follow us on social media to learn more about working at JANISSARIES:</p>
+                <a href="#">LinkedIn</a> | 
+                <a href="#">Facebook</a> | 
+                <a href="#">Instagram</a> | 
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h3>JANISSARIES</h3>
+                <p>Building a legacy of protection and trust in the insurance industry.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Careers</h3>
+                <ul>
+                    <li><a href="index.html#careers">Current Openings</a></li>
+                    <li><a href="index.html#apply">Application Process</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><a href="mailto:Htorayev@janissariesx.com">Htorayev@janissariesx.com</a></li>
+                    <li><a href="tel:+14129251282">+1(412)925-1282</a></li>
+                    <li><a href="#">150 Lake Drive, Wexford, PA 15090</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Connect</h3>
+                <ul>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 JANISSARIES Insurance Agency. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
