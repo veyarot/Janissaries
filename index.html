@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JANISSARIES Insurance Agency | Join Our Team</title>
     <style>
-        /* All existing styles remain the same */
+        /* Color scheme changed to blue, green, and yellow */
         :root {
-            --primary: #670000;
-            --secondary: #8B0000;
-            --accent: #F5DEB3;
-            --light: #FFF5E6;
-            --dark: #340000;
-            --text: #2D2D2D;
+            --primary: #003087; /* Deep blue */
+            --secondary: #005f73; /* Teal/green */
+            --accent: #ffd166; /* Yellow */
+            --light: #f0f7ff; /* Light blue tint */
+            --dark: #001d3d; /* Dark blue */
+            --text: #333333;
         }
         
         * {
@@ -72,7 +72,7 @@
         
         .main-banner {
             height: 80vh;
-            background-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
             display: flex;
             align-items: center;
@@ -139,11 +139,13 @@
             background-color: #fff;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
+            border: 1px solid #eaeaea;
         }
         
         .feature-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            border-top: 3px solid var(--secondary);
         }
         
         .feature-card h3 {
@@ -179,6 +181,8 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
         }
         
         .position-card .details span {
@@ -232,11 +236,22 @@
             border-radius: 10px;
             padding: 2rem;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--secondary);
         }
         
         .testimonial-card p {
             font-style: italic;
             margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .testimonial-card p::before {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            top: -20px;
+            left: -15px;
+            color: rgba(0, 95, 115, 0.1);
         }
         
         .testimonial-card .author {
@@ -251,7 +266,7 @@
         
         .about-us {
             padding: 5rem 10%;
-            background-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
         }
         
@@ -271,6 +286,7 @@
         .about-image img {
             width: 100%;
             border-radius: 10px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
         }
         
         footer {
@@ -399,7 +415,7 @@
             }
         }
         
-        /* New styles for form status messages */
+        /* Form status messages */
         .form-status {
             padding: 15px;
             margin: 15px 0;
@@ -607,7 +623,7 @@
         <h2 class="section-title">Apply Now</h2>
         <div class="form-container">
             <div id="form-status" class="form-status"></div>
-           <form action="https://formsubmit.co/torayev.biz@gmail.com" method="POST" />
+           <form action="https://formsubmit.co/torayev.biz@gmail.com" method="POST">
                 <!-- FormSubmit required fields -->
                 <input type="hidden" name="_subject" value="New JANISSARIES Job Application">
                 <input type="hidden" name="_captcha" value="false">
@@ -701,14 +717,8 @@
     </footer>
     
     <script>
-        document.getElementById('career-application').addEventListener('submit', function(e) {
-            // The form will now submit naturally to the FormSubmit service
-            // This handler is just for additional validation or UI feedback if needed
-            const formStatus = document.getElementById('form-status');
-            formStatus.className = 'form-status success';
-            formStatus.style.display = 'block';
-            formStatus.textContent = 'Submitting your application...';
-        });
+        // Form submission handling if needed
+        // The form will submit naturally to FormSubmit service
     </script>
 </body>
 </html>
